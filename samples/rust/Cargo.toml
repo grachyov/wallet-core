@@ -6,7 +6,7 @@ build = "src/build.rs"
 
 [dependencies]
 hex = "0.4.3"
-libc = "0.2"
+libc = "0.2.169"
 protobuf = "3.2.0"
 
 [build-dependencies]
