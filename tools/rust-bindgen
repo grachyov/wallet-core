@@ -23,10 +23,10 @@ create_xc_framework() {
   cp $BUILD_FOLDER/catalyst/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-maccatalyst
 
   mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64
-  cp $BUILD_FOLDER/aarch64-apple-visionos/release/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/visionos-arm64
+  cp $TARGET_XCFRAMEWORK_NAME/ios-arm64 $TARGET_XCFRAMEWORK_NAME/visionos-arm64
 
   mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
-  cp $BUILD_FOLDER/aarch64-apple-visionos-sim/release/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
+  cp $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-simulator $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
 }
 
 cd rust
@@ -42,8 +42,6 @@ if isTargetSpecified "ios" && [[ $(uname) == "Darwin" ]]; then
     --target x86_64-apple-darwin \
     --target aarch64-apple-ios-macabi \
     --target x86_64-apple-ios-macabi \
-    --target aarch64-apple-visionos \
-    --target aarch64-apple-visionos-sim \
     --release --lib &
   wait
   lipo $BUILD_FOLDER/x86_64-apple-ios/release/$TARGET_NAME $BUILD_FOLDER/aarch64-apple-ios-sim/release/$TARGET_NAME -create -output $BUILD_FOLDER/$TARGET_NAME
