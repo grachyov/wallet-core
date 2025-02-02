@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
       'Sources/Types/*.swift',
       'Sources/Generated/Enums/*.swift',
       'Sources/Generated/Protobuf/*.swift'
-    ss.dependency 'VSwiftProtobuf', :git => 'https://github.com/grachyov/swift-protobuf.git', :branch => 'main'
+    ss.dependency 'VSwiftProtobuf'
   end
   s.subspec 'Core' do |ss|
     ss.vendored_frameworks = '*.xcframework'
