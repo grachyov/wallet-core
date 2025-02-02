@@ -22,11 +22,11 @@ create_xc_framework() {
   mkdir -p $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-maccatalyst
   cp $BUILD_FOLDER/catalyst/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-maccatalyst
 
-  mkdir -p $TARGET_XCFRAMEWORK_NAME/aarch64-apple-visionos
-  cp $BUILD_FOLDER/aarch64-apple-visionos/release/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/aarch64-apple-visionos
+  mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64
+  cp $BUILD_FOLDER/aarch64-apple-visionos/release/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/visionos-arm64
 
-  mkdir -p $TARGET_XCFRAMEWORK_NAME/aarch64-apple-visionos-sim
-  cp $BUILD_FOLDER/aarch64-apple-visionos-sim/release/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/aarch64-apple-visionos-sim
+  mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
+  cp $BUILD_FOLDER/aarch64-apple-visionos-sim/release/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
 }
 
 cd rust
@@ -135,7 +135,7 @@ if isTargetSpecified "ios" && [[ $(uname) == "Darwin" ]]; then
 				<string>arm64</string>
 			</array>
 			<key>SupportedPlatform</key>
-			<string>visionos</string>
+			<string>xros</string>
 		</dict>
 		<dict>
 			<key>LibraryIdentifier</key>
@@ -147,7 +147,7 @@ if isTargetSpecified "ios" && [[ $(uname) == "Darwin" ]]; then
 				<string>arm64</string>
 			</array>
 			<key>SupportedPlatform</key>
-			<string>visionos</string>
+			<string>xros</string>
 			<key>SupportedPlatformVariant</key>
 			<string>simulator</string>
 		</dict>
