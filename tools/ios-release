@@ -16,8 +16,6 @@ built_dir=${base_dir}/../build/ios-frameworks
 # version to release
 version=$(wc_read_version $1)
 echo "release version ${version}"
-release_url=$(wc_release_url ${version})
-echo "release_url url is $release_url"
 
 pushd ${built_dir}
 # archive headers, swift code and xcframework
@@ -35,11 +33,7 @@ pushd release
 tar -cJvf ../${filename} .
 popd
 
-# upload to release
-download_url=$(wc_upload_asset ${release_url} ${filename})
-echo "download_url is $download_url"
-download_url=$(tr -d '"' <<< $download_url)
-echo "trimmed download_url is ${download_url}"
+echo "Created archive at: ${built_dir}/${filename}"
 
 # create podspec
 podspec_name=TrustWalletCore
@@ -58,7 +52,7 @@ Pod::Spec.new do |s|
   s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.source = {
-    http: '${download_url}'
+    http: 'null'
   }
   s.default_subspec = 'Core'
   s.subspec 'Types' do |ss|
@@ -85,9 +79,8 @@ Pod::Spec.new do |s|
 end
 EOF
 
-echo "generated podspec: "
+echo "Generated podspec at: ${built_dir}/${podspec}"
+echo "Contents of generated podspec:"
 cat ${podspec}
-
-echo "Done. ${podspec}"
 
 popd
