@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '12.0'
   s.osx.deployment_target = '10.12'
+  s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.libraries = 'c++'
 
@@ -25,7 +26,7 @@ Pod::Spec.new do |s|
       'swift/Sources/Types/*.swift',
       'swift/Sources/Generated/Enums/*.swift',
       'swift/Sources/Generated/Protobuf/*.swift'
-    ss.dependency 'SwiftProtobuf'
+    ss.dependency 'VSwiftProtobuf', :git => 'https://github.com/grachyov/swift-protobuf.git', :branch => 'main'
   end
 
   s.subspec 'Core' do |ss|

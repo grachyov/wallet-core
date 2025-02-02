@@ -4,7 +4,7 @@
 
 import UIKit
 import TrustWalletCore
-import SwiftProtobuf
+import VSwiftProtobuf
 
 enum PlaygroundError: Error {
     case invalidHexString

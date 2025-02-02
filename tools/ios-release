@@ -55,6 +55,7 @@ Pod::Spec.new do |s|
   s.module_name  = 'WalletCore'
   s.ios.deployment_target = '12.0'
   s.osx.deployment_target = '10.14'
+  s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.source = {
     http: '${download_url}'
@@ -65,7 +66,7 @@ Pod::Spec.new do |s|
       'Sources/Types/*.swift',
       'Sources/Generated/Enums/*.swift',
       'Sources/Generated/Protobuf/*.swift'
-    ss.dependency 'SwiftProtobuf'
+    ss.dependency 'VSwiftProtobuf', :git => 'https://github.com/grachyov/swift-protobuf.git', :branch => 'main'
   end
   s.subspec 'Core' do |ss|
     ss.vendored_frameworks = '*.xcframework'
@@ -87,9 +88,6 @@ EOF
 echo "generated podspec: "
 cat ${podspec}
 
-# pod trunk push
-echo "Done. running: pod trunk push --allow-warnings ${podspec}"
-
-pod trunk push --verbose --allow-warnings ${podspec}
+echo "Done. ${podspec}"
 
 popd
