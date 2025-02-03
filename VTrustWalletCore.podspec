@@ -6,8 +6,6 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.authors      = { 'Alejandro Isaza' => 'al@isaza.ca' }
   s.module_name  = 'WalletCore'
-  s.ios.deployment_target = '12.0'
-  s.osx.deployment_target = '10.14'
   s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.source = {
