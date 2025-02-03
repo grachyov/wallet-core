@@ -28,7 +28,7 @@ cp -R ${src_dir}/swift/Sources release
 rm release/Sources/Dummy.cpp
 cp ${src_dir}/License release
 
-filename="TrustWalletCore-${version}.tar.xz"
+filename="VTrustWalletCore-${version}.tar.xz"
 pushd release
 tar -cJvf ../${filename} .
 popd
@@ -36,19 +36,17 @@ popd
 echo "Created archive at: ${built_dir}/${filename}"
 
 # create podspec
-podspec_name=TrustWalletCore
+podspec_name=VTrustWalletCore
 podspec=${podspec_name}.podspec
 cat > $podspec <<EOF 
 Pod::Spec.new do |s|
   s.name         = '${podspec_name}'
   s.version      = '${version}'
   s.summary      = 'Trust Wallet core data structures and algorithms.'
-  s.homepage     = 'https://github.com/trustwallet/wallet-core'
+  s.homepage     = 'https://github.com/grachyov/wallet-core'
   s.license      = 'MIT'
   s.authors      = { 'Alejandro Isaza' => 'al@isaza.ca' }
   s.module_name  = 'WalletCore'
-  s.ios.deployment_target = '12.0'
-  s.osx.deployment_target = '10.14'
   s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.source = {
@@ -74,7 +72,7 @@ Pod::Spec.new do |s|
       'include/**/*.h',
       'Sources/*.h'
     ss.libraries = 'c++'
-    ss.dependency 'TrustWalletCore/Types'
+    ss.dependency 'VTrustWalletCore/Types'
   end
 end
 EOF
