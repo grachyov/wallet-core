@@ -33,6 +33,6 @@ Pod::Spec.new do |s|
       'include/**/*.h',
       'Sources/*.h'
     ss.libraries = 'c++'
-    ss.dependency 'TrustWalletCore/Types'
+    ss.dependency 'VTrustWalletCore/Types'
   end
 end
