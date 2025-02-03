@@ -26,7 +26,7 @@ create_xc_framework() {
   cp $TARGET_XCFRAMEWORK_NAME/ios-arm64 $TARGET_XCFRAMEWORK_NAME/visionos-arm64
 
   mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
-  cp $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-simulator $TARGET_XCFRAMEWORK_NAME/visionos-arm64-simulator
+  cp $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-simulator $TARGET_XCFRAMEWORK_NAME/visionos-arm64_x86_64-simulator
 }
 
 cd rust
@@ -137,12 +137,13 @@ if isTargetSpecified "ios" && [[ $(uname) == "Darwin" ]]; then
 		</dict>
 		<dict>
 			<key>LibraryIdentifier</key>
-			<string>visionos-arm64-simulator</string>
+			<string>visionos-arm64_x86_64-simulator</string>
 			<key>LibraryPath</key>
 			<string>libwallet_core_rs.a</string>
 			<key>SupportedArchitectures</key>
 			<array>
 				<string>arm64</string>
+				<string>x86_64</string>
 			</array>
 			<key>SupportedPlatform</key>
 			<string>xros</string>
