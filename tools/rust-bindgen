@@ -23,10 +23,10 @@ create_xc_framework() {
   cp $BUILD_FOLDER/catalyst/$TARGET_NAME $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-maccatalyst
 
   mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64
-  cp $TARGET_XCFRAMEWORK_NAME/ios-arm64 $TARGET_XCFRAMEWORK_NAME/visionos-arm64
+  cp -R $TARGET_XCFRAMEWORK_NAME/ios-arm64/* $TARGET_XCFRAMEWORK_NAME/visionos-arm64/
 
-  mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64_x86_64-simulator
-  cp $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-simulator $TARGET_XCFRAMEWORK_NAME/visionos-arm64_x86_64-simulator
+  mkdir -p $TARGET_XCFRAMEWORK_NAME/visionos-arm64_x86_64-simulator  
+  cp -R $TARGET_XCFRAMEWORK_NAME/ios-arm64_x86_64-simulator/* $TARGET_XCFRAMEWORK_NAME/visionos-arm64_x86_64-simulator/
 }
 
 cd rust
