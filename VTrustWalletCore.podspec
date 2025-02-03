@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = 'TrustWalletCore'
+  s.name         = 'VTrustWalletCore'
   s.version      = '5.0.0'
   s.summary      = 'Trust Wallet core data structures and algorithms.'
   s.homepage     = 'https://github.com/trustwallet/wallet-core'
