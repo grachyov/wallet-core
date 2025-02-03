@@ -16,9 +16,9 @@ public final class AnySigner {
     /// Signs a transaction by SigningInput message and coin type
     ///
     /// - Parameters:
-    /// - input: The generic SigningInput SwiftProtobuf message
+    /// - input: The generic SigningInput VSwiftProtobuf message
     /// - coin: CoinType
-    /// - Returns: The generic SigningOutput SwiftProtobuf message
+    /// - Returns: The generic SigningOutput VSwiftProtobuf message
     public static func sign<SigningOutput: Message>(input: SigningInput, coin: CoinType) -> SigningOutput {
         do {
             let outputData = nativeSign(data: try input.serializedData(), coin: coin)
@@ -66,9 +66,9 @@ public final class AnySigner {
     /// Plans a transaction (for UTXO chains only).
     ///
     /// - Parameters:
-    /// - input: The generic SigningInput SwiftProtobuf message
+    /// - input: The generic SigningInput VSwiftProtobuf message
     /// - coin: CoinType
-    /// - Returns: TransactionPlan SwiftProtobuf message
+    /// - Returns: TransactionPlan VSwiftProtobuf message
     public static func plan<TransactionPlan: Message>(input: SigningInput, coin: CoinType) -> TransactionPlan {
         do {
             let outputData = nativePlan(data: try input.serializedData(), coin: coin)
