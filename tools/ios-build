@@ -64,7 +64,7 @@ create_xc_framework() {
     mkdir -p $BUILD_FOLDER/$FRAMEWORK.xcframework/visionos-arm64_x86_64-simulator  
     cp -R $BUILD_FOLDER/visionos-arm64_x86_64-simulator.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework $BUILD_FOLDER/$FRAMEWORK.xcframework/visionos-arm64_x86_64-simulator/
 
-    # TODO: modify Info.plist to include visionos-arm64 and visionos-arm64-simulator
+    # TODO: modify Info.plist to include xros-arm64 and xros-arm64_x86_64-simulator
 }
 
 main() {

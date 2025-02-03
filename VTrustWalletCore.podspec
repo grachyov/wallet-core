@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'VTrustWalletCore'
-  s.version      = '7.0.2'
+  s.version      = '7.0.3'
   s.summary      = 'Trust Wallet core data structures and algorithms.'
   s.homepage     = 'https://github.com/grachyov/wallet-core'
   s.license      = 'MIT'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.source = {
-    http: 'https://github.com/grachyov/wallet-core/releases/download/v7.0.2/VTrustWalletCore-7.0.2.tar.xz'
+    http: 'https://github.com/grachyov/wallet-core/releases/download/v7.0.3/VTrustWalletCore-7.0.3.tar.xz'
   }
   s.default_subspec = 'Core'
   s.subspec 'Types' do |ss|
