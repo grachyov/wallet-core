@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.visionos.deployment_target = '1.0'
   s.swift_version = '5.1'
   s.source = {
-    http: 'https://github.com/grachyov/wallet-core/releases/download/v5.0.1/TrustWalletCore-5.0.1.tar.xz'
+    http: 'https://github.com/grachyov/wallet-core/releases/download/v5.0.1/VTrustWalletCore-5.0.1.tar.xz'
   }
   s.default_subspec = 'Core'
   s.subspec 'Types' do |ss|
