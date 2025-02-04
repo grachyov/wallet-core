@@ -43,35 +43,22 @@ build_mac_x64_arm64() {
 }
 
 build_visionos() {
-    build "${FRAMEWORK}_visionOS" "generic/platform=xrOS" "visionos-arm64"
+    build "${FRAMEWORK}_visionOS" "generic/platform=xrOS" "xros-arm64"
 }
 
 build_visionos_simulator() {
-    build "${FRAMEWORK}_visionOS" "generic/platform=xrOS Simulator" "visionos-arm64_x86_64-simulator"
+    build "${FRAMEWORK}_visionOS" "generic/platform=xrOS Simulator" "xros-arm64-simulator"
 }
 
 create_xc_framework() {
     echo "Creating xcframework..."
     xcodebuild -create-xcframework -output $BUILD_FOLDER/$FRAMEWORK.xcframework \
-               -framework $BUILD_FOLDER/ios-arm64.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework \
-               -framework $BUILD_FOLDER/ios-arm64_x86_64-simulator.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework \
-               -framework $BUILD_FOLDER/ios-x86_64_arm64-maccatalyst.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework \
-               -framework $BUILD_FOLDER/macos-arm64_x86_64.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework
-
-    mkdir -p $BUILD_FOLDER/$FRAMEWORK.xcframework/visionos-arm64
-    cp -R $BUILD_FOLDER/visionos-arm64.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework $BUILD_FOLDER/$FRAMEWORK.xcframework/visionos-arm64/
-
-    mkdir -p $BUILD_FOLDER/$FRAMEWORK.xcframework/visionos-arm64_x86_64-simulator  
-    cp -R $BUILD_FOLDER/visionos-arm64_x86_64-simulator.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework $BUILD_FOLDER/$FRAMEWORK.xcframework/visionos-arm64_x86_64-simulator/
-
-    # TODO: modify Info.plist to include xros-arm64 and xros-arm64_x86_64-simulator
+               -framework $BUILD_FOLDER/xros-arm64.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework \
+               -framework $BUILD_FOLDER/xros-arm64-simulator.xcarchive/Products/Library/Frameworks/$FRAMEWORK.framework
 }
 
 main() {
     init
-    build_mac_x64_arm64
-    build_ios_mac_catalyst
-    build_ios_arm64 && build_ios_simulator
     build_visionos && build_visionos_simulator
     create_xc_framework
 }
